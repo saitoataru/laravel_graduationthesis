@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <!-- resources/views/books.blade.php -->
 <x-app-layout>
 

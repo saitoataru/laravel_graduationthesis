@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <section class="text-gray-600 body-font">
   @csrf
 <!--<div class="container px-5 py-24 mx-auto">-->

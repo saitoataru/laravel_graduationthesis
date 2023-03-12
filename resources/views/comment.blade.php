@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
     <!--ヘッダー[START]-->
     <x-slot name="header">
