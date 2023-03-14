@@ -23,8 +23,8 @@ Route::get('/', [BookController::class,'index'])->middleware(['auth'])->name('bo
 Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/good', [GoodController::class,'index'])->middleware(['auth'])->name('good');
 
-//コメント
-Route::get('/comment', [CommentCotroller::class,"index"])->middleware(['auth'])->name('comment');
+//コメント→エラーにしている
+Route::get('/comment', [CommentController::class,"index"])->middleware(['auth'])->name('comment');
 
 
 

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
              $table->bigIncrements('id');
              $table->string('item_name'); //追加
-             $table->integer('item_number'); //追加
+             $table->string('comment'); //追加
+             $table->string('item_URL'); //追加
              $table->integer('item_amount'); //追加
              $table->datetime('published'); //追加
              $table->bigInteger('user_id'); //Add:user_id

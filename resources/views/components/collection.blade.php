@@ -5,7 +5,7 @@
       <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg"　enctype="multipart/form-data">
       <!--<div class="p-4 lg:w-1/3">-->
         <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{asset('storage/image/camp.jpeg')}}">
+          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="storage/{{$image}}">
         </a>
         <div class="mt-4">
           <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $title }}</h3>
@@ -14,7 +14,7 @@
           
           <div class="rounded-[16px] border-[3px] border-black px-[20px] py-[15px] text-xs font-bold">
           <div class="mt-2">
-          <p class="mt-2 text-gray-600">XXXXXXXXXXX</p>
+          <p class="mt-2 text-gray-600">{{$comment}}</p>
           </div>
           </div>
           <h5 class="text-gray-900  font-thin text-right">投稿時間：{{ $time }}</h3>

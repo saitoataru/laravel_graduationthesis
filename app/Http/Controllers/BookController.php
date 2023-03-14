@@ -44,7 +44,8 @@ class BookController extends Controller
     {
         $validator = Validator::make($request->all(),[
              'item_name' => 'required|min:3|max:255',
-             'item_number' => 'required|min:1|max:3',
+             'comment' => 'required|min:5|max:255',
+             'item_URL' => 'required|min:5',
              'item_amount' => 'required|max:6',
              'published'   => 'required',
             ]);
@@ -56,8 +57,9 @@ class BookController extends Controller
         
         $books = new Book;
         $books->item_name   = $request->item_name;
-	    $books->item_number = $request->item_number;
+	    $books->comment = $request->comment;
 	    $books->item_amount = $request->item_amount;
+	    $books->item_URL = $request->item_URL;
 	    $books->published   = $request->published;
 	    $books->updated_at   = $request->updated_at;
 	    $books->image   = $request->image;
