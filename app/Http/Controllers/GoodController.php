@@ -17,8 +17,8 @@ class GoodController extends Controller
      */
     public function index()
     {
-        $books =  \DB::table('books')->orderBy('created_at', 'desc')->get();
-       
+        // $books =  \DB::table('books')->orderBy('created_at', 'desc')->get();
+        $books = Book::all();
         return view('goods', [
             'books' => $books
         ]);

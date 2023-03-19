@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GoodController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\UserInfoController;
 use App\Models\Book;
 
 /*
@@ -53,3 +55,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// ショートムービー検証
+Route::get('video/stream', [VideoController::class,'stream'])->name('video');
+
+//ユーザーページ検証
+Route::get('user/{user_id}',[UserInfoController::class,'index'])->name('user');

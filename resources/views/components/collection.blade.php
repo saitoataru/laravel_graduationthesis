@@ -5,9 +5,12 @@
       <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg"　enctype="multipart/form-data">
       <!--<div class="p-4 lg:w-1/3">-->
         <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="storage/{{$image}}">
+           <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="storage/{{$image}}">
         </a>
         <div class="mt-4">
+　　　　　<div class"m-3">
+　　　　　  <div class="px-2 py-1 w-1/3 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500">EXPART</div>
+　　　　　</div>
           <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $title }}</h3>
           <h2 class="text-gray-900 title-font text-lg font-medium">{{ $number }}</h2>
           <h2 class="mt-1">詳細</h2>

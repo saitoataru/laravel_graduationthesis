@@ -87,7 +87,7 @@
     <div class="flex flex-wrap">
         @if(count($books)>0)
             @foreach($books as $book)
-                <div class="rounded border bg-green-50 p-3 w-1/3">
+                <div class="rounded border bg-green-50 p-3 w-1/3 h-50px">
                     <x-collection id="{{$book->id}}">
                         <x-slot name="image">{{$book->image}}</x-slot>
                         <x-slot name="time">{{$book->created_at}}</x-slot>

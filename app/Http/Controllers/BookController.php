@@ -63,6 +63,9 @@ class BookController extends Controller
 	    $books->published   = $request->published;
 	    $books->updated_at   = $request->updated_at;
 	    $books->image   = $request->image;
+	    
+	    
+	    
 	    $books->user_id = Auth::id();
 	   // dd($request->all());
 	   // dd($request->file('image'));

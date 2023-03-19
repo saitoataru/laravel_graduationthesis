@@ -5,12 +5,14 @@
       
     </x-slot>
     <!--ヘッダー[END]-->
+  
+    
     
     <!--compenent部分[start]-->
     <div class="flex flex-wrap">
         @if(count($books)>0)
             @foreach($books as $book)
-            <div class="rounded border bg-green-50 p-3 w-1/3">
+            <div class="rounded border bg-green-50 p-3 w-1/3 h-50px">
             <x-goods id="{{$book->id}}">
                 <x-slot name="image">{{$book->image}}</x-slot>
                 <x-slot name="time">{{$book->created_at}}</x-slot>
@@ -18,6 +20,8 @@
                 <x-slot name="number">{{$book->item_name}}</x-slot>
                 <x-slot name="comment">{{$book->comment}}</x-slot>
                 <x-slot name="item_URL">{{$book->item_URL}}</x-slot>
+                <x-slot name="user_id">{{$book->user_id}}</x-slot>
+                <x-slot name="user_name">{{$book->user->name}}</x-slot>
             </x-goods>
             </div>
             
