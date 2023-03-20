@@ -2,40 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Models\Good;
+use App\Models\search;
 use Illuminate\Http\Request;
-use Validator;
-use Auth;
 
-class GoodController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // $books =  \DB::table('books')->orderBy('created_at', 'desc')->get();
-        $books = Book::all();
-        return view('goods', [
-            'books' => $books
-        ]);
-    }
-    
-    //検索用のコントローラー
-    public function search(Request $request)
+    public function index(Request $request)
     {
         $keyword = $request->input('keyword');
-        $query = Book::query();
+
+        $query = Post::query();
 
         if(!empty($keyword)) {
-            $query->where('item_name', 'LIKE', "%{$keyword}%");
-                // ->orWhere('name', 'LIKE', "%{$keyword}%");
+            $query->where('title', 'LIKE', "%{$keyword}%")
+                ->orWhere('author', 'LIKE', "%{$keyword}%");
         }
-        $books = $query->get();
-        return view('goods', compact('books', 'keyword'));   
+
+        $posts = $query->get();
+
+        return view('index', compact('posts', 'keyword'));
     }
 
     /**
@@ -62,10 +52,10 @@ class GoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\search  $search
      * @return \Illuminate\Http\Response
      */
-    public function show(Good $good)
+    public function show(search $search)
     {
         //
     }
@@ -73,10 +63,10 @@ class GoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\search  $search
      * @return \Illuminate\Http\Response
      */
-    public function edit(Good $good)
+    public function edit(search $search)
     {
         //
     }
@@ -85,10 +75,10 @@ class GoodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\search  $search
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Good $good)
+    public function update(Request $request, search $search)
     {
         //
     }
@@ -96,10 +86,10 @@ class GoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\search  $search
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Good $good)
+    public function destroy(search $search)
     {
         //
     }

@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Models\Good;
+use App\Models\question;
 use Illuminate\Http\Request;
-use Validator;
-use Auth;
 
-class GoodController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,25 +14,7 @@ class GoodController extends Controller
      */
     public function index()
     {
-        // $books =  \DB::table('books')->orderBy('created_at', 'desc')->get();
-        $books = Book::all();
-        return view('goods', [
-            'books' => $books
-        ]);
-    }
-    
-    //検索用のコントローラー
-    public function search(Request $request)
-    {
-        $keyword = $request->input('keyword');
-        $query = Book::query();
-
-        if(!empty($keyword)) {
-            $query->where('item_name', 'LIKE', "%{$keyword}%");
-                // ->orWhere('name', 'LIKE', "%{$keyword}%");
-        }
-        $books = $query->get();
-        return view('goods', compact('books', 'keyword'));   
+        return view('answer'); 
     }
 
     /**
@@ -62,10 +41,10 @@ class GoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Good $good)
+    public function show(question $question)
     {
         //
     }
@@ -73,10 +52,10 @@ class GoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Good $good)
+    public function edit(question $question)
     {
         //
     }
@@ -85,10 +64,10 @@ class GoodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Good $good)
+    public function update(Request $request, question $question)
     {
         //
     }
@@ -96,10 +75,10 @@ class GoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Good  $good
+     * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Good $good)
+    public function destroy(question $question)
     {
         //
     }

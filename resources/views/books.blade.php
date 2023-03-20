@@ -1,7 +1,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <!-- resources/views/books.blade.php -->
 <x-app-layout>
-
+<div class="container mx-auto shadow-lg rounded-lg">
     <!--ヘッダー[START]-->
  
     <!--ヘッダー[END]-->
@@ -29,7 +29,7 @@
                 @csrf
                   <div class="flex flex-col px-2 py-2">
                    <!-- カラム１ -->
-                    <div class="w-full md:w-1/1 px-3 mb-2 md:mb-0">
+                    <div class="w-full md:w-1/1 px-3">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                        アイテム名
                       </label>
@@ -102,6 +102,7 @@
     </div>
     <!--右側エリア[[END]-->       
 
+</div>
 </div>
  <!--全エリア[END]-->
 

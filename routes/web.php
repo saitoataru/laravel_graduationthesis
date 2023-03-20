@@ -7,6 +7,7 @@ use App\Http\Controllers\GoodController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\UserInfoController;
+use App\Http\Controllers\QuestionController;
 use App\Models\Book;
 
 /*
@@ -22,7 +23,7 @@ use App\Models\Book;
 
 //本：ダッシュボード表示(books.blade.php)
 Route::get('/', [BookController::class,'index'])->middleware(['auth'])->name('book_index');
-Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/good', [GoodController::class,'index'])->middleware(['auth'])->name('good');
 
 //コメント→エラーにしている
@@ -61,3 +62,10 @@ Route::get('video/stream', [VideoController::class,'stream'])->name('video');
 
 //ユーザーページ検証
 Route::get('user/{user_id}',[UserInfoController::class,'index'])->name('user');
+
+//検索検証
+Route::get('/search', [GoodController::class, 'search'])
+    ->name('search');
+
+//質問ページへの遷移
+Route::get('/question',[QuestionController::class,'index'])->name('question');

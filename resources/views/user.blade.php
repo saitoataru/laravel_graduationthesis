@@ -1,5 +1,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
+    <div class="container mx-auto shadow-lg rounded-lg">
     @foreach($users as $user)
     <x-userInfo>
           <x-slot name="user_name">{{$user->name}}</x-slot>
@@ -22,6 +23,7 @@
                 </div>        
             @endforeach
         @endif
+    </div>
     </div>
 
 </x-app-layout>

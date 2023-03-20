@@ -1,7 +1,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <section class="text-gray-600 body-font">
   @csrf
-<div class="min-h-[100px] bg-black/60 px-[25px] text-white backdrop-blur">
+<div class="min-h-[100px] bg-black/60 px-[25px] text-white backdrop-blur rounded ">
     <!--<div class="items-begin mt-[89px] flex justify-center gap-[36px] ">-->
     <!--    <div class="avatar">-->
     <!--        <div class="rounded-full h-[88px] w-[88px]">-->
@@ -23,6 +23,10 @@
     <!--    </div>-->
     <!--</div>-->
     <!--</div>-->
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+    <circle cx="12" cy="7" r="4"></circle>
+    </svg>
     <div class="mt-[20px] flex items-center gap-[30px]">
         <h1 class="text-xl font-bold">{{$user_name}}</h1>
         <svg width="13px" height="10px" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">

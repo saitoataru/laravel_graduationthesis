@@ -1,12 +1,19 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
-    <!--ヘッダー[START]-->
-    <x-slot name="header">
-      
-    </x-slot>
-    <!--ヘッダー[END]-->
-  
-    
+
+<div class="container mx-auto shadow-lg rounded-lg">
+    <!--↓↓ 検索フォーム ↓↓-->
+<div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
+<div class="w-1/3">
+  <form action="{{ route('search') }}" method="GET">
+    <input type="text" name="keyword" placeholder="キーワードを入力してください" class="rounded-2xl bg-gray-100 py-3 px-5 w-full">
+    <input type="submit" value="検索">
+  </form>
+</div>
+</div>
+    <!--↑↑ 検索フォーム ↑↑-->
+ 
+
     
     <!--compenent部分[start]-->
     <div class="flex flex-wrap">
@@ -31,5 +38,6 @@
     <!--compenent部分[end]-->
     
     </div>
+</div>
 </x-app-layout>
     

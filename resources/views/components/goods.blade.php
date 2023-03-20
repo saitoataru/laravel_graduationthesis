@@ -15,7 +15,7 @@
         <!--</video>-->
         <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/xAOLF1ebxKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
         <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $title }}</h3>
+          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">aaaa</h3>
           <h2 class="text-gray-900 title-font text-lg font-medium">{{ $number }}</h2>
           <!--<h2 class="mt-1">コメント</h2>-->
           <!--<div class"m-3">-->
