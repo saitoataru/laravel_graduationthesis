@@ -3,7 +3,7 @@
   @csrf
 <!--<div class="container px-5 py-24 mx-auto">-->
     <!--<div class="flex flex-wrap -m-4">-->
-      <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg"　enctype="multipart/form-data">
+     
       <!--<div class="p-4 lg:w-1/3">-->
         <a class="block relative h-48 rounded overflow-hidden">
           <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="storage/{{$image}}">
@@ -29,7 +29,7 @@
           </div>
           <h5 class="text-gray-900  font-thin text-right">投稿時間：{{ $time }}</h3>
       <!--</div>-->
-      </form>
+     
       <div class="flex space-x-4">
         <div>
           <form action="{{$item_URL}}" method="GET" class="w-full max-w-lg">
@@ -40,10 +40,9 @@
         <div>
           <form action="{{ route('comment')}}" method="GET" class="w-full max-w-lg">
         
-            <x-button class="bg-gray-100 text-gray-900">{{ __('個別に質問してみる！') }}</x-button>
+            <x-button class="bg-gray-100 text-gray-900">{{ __('質問してみる！') }}</x-button>
           </form>
         </div>
-      </div>
         <div>
           <form action="{{ route('video')}}" method="GET" class="w-full max-w-lg">
         

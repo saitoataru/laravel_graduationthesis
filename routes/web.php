@@ -58,14 +58,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // ショートムービー検証
-Route::get('video/stream', [VideoController::class,'stream'])->name('video');
+Route::get('video/stream', [VideoController::class,'stream'])->middleware(['auth'])->name('video');
 
 //ユーザーページ検証
-Route::get('user/{user_id}',[UserInfoController::class,'index'])->name('user');
+Route::get('user/{user_id}',[UserInfoController::class,'index'])->middleware(['auth'])->name('user');
 
 //検索検証
 Route::get('/search', [GoodController::class, 'search'])
     ->name('search');
 
-//質問ページへの遷移
-Route::get('/question',[QuestionController::class,'index'])->name('question');
+//みんなの回答ページへの遷移
+Route::get('/expart',[QuestionController::class,'index_expart'])->middleware(['auth'])->name('expart');
+//みんなの回答ページへの遷移
+Route::get('/answers',[QuestionController::class,'index_answer'])->middleware(['auth'])->name('answer');
+
+//質問入力画面
+Route::get('/question/{user_id}',[QuestionController::class,'question'])->middleware(['auth'])->name('question');
+//質問登録画面
+Route::post('/question/store',[QuestionController::class,'store'])->middleware(['auth'])->name('que.store');

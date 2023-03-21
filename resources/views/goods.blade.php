@@ -6,8 +6,10 @@
 <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
 <div class="w-1/3">
   <form action="{{ route('search') }}" method="GET">
+    <div class="flex mt-[18px] gap-[18px]">
     <input type="text" name="keyword" placeholder="キーワードを入力してください" class="rounded-2xl bg-gray-100 py-3 px-5 w-full">
     <input type="submit" value="検索">
+    </div>
   </form>
 </div>
 </div>

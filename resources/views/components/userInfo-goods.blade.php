@@ -41,12 +41,12 @@
             <x-button class="bg-gray-100 text-gray-900">{{ __('個別に質問してみる！') }}</x-button>
           </form>
         </div>
-      </div>
         <div>
           <form action="{{ route('video')}}" method="GET" class="w-full max-w-lg">
         
             <x-button class="bg-gray-100 text-gray-900">{{ __('使用動画を見る') }}</x-button>
           </form>
+        </div>
         </div>
       </div>
       <!--ユーザー紹介-->

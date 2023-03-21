@@ -3,39 +3,72 @@
 namespace App\Http\Controllers;
 
 use App\Models\question;
+use App\Models\Book;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Validator;
+
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    //view機能
+    public function index_answer()
     {
-        return view('answer'); 
+        $questions = question::all();
+        return view('searchAnswer', [
+        'questions' => $questions
+        ]);
+    }
+    
+     public function index_expart()
+    {   
+        $users = User::all();
+        return view('searchExpart', [
+            'users' => $users
+        ]); 
+    }
+    
+    public function question($user_id)
+    {   
+        $questioner_id = Auth::id();
+        // $ids = Auth::id();
+        $users = User::where('id','=',$user_id)->get();
+        return view('question',['users'=>$users],['questioner_id'=>$questioner_id]); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //質問
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'que_title' => 'required|min:3|max:255',
+            'que_comment' => 'required|min:5|max:255',
+            'item_URL' => 'required|min:5',
+            ]);
+        if ($validator->fails()) {
+            return redirect('/')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        
+        $questions = new question;
+        $questions->answer_id   = $request->answer_id;
+        $questions->que_title   = $request->que_title;
+        $questions->que_comment   = $request->que_comment;
+        $questions->item_URL = $request->item_URL;
+        $questions->questioner_id = Auth::id();
+        $questions->image   = $request->image;
+
+       
+        $questions->save(); 
+	    return redirect('/question/{user_id}');
+        
     }
 
     /**
