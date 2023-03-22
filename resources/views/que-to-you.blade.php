@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
     </div>
-  
+
     </div>
     <!-- end header -->
     <!-- Chatting -->
@@ -33,31 +33,29 @@
  <div class="container px-5 py-12 mx-auto">
             <div class="-my-8 divide-y-2 divide-gray-100">
                 <div class="col-12 col-sm-12 col-md-10 col-lg-8">
+      
+      
+      
       <!--質問-->
     <div class="flex flex-wrap">
-        @if(count($users)>0)
-            @foreach($users as $user)
+        @if(count($questions)>0)
+            @foreach($questions as $question)
             <div class="rounded border bg-green-50 p-3 w-1/3 h-50px">
-            <x-exparts id="{{$user->id}}">
-                <x-slot name="image">{{$user->image}}</x-slot>
-                <x-slot name="time">{{$user->created_at}}</x-slot>
-                <x-slot name="title">{{$user->item_name}}</x-slot>
-                <x-slot name="number">{{$user->item_name}}</x-slot>
-                <x-slot name="comment">{{$user->comment}}</x-slot>
-                <x-slot name="item_URL">{{$user->item_URL}}</x-slot>
-                <x-slot name="user_id">{{$user->id}}</x-slot>
-                <x-slot name="user_name">{{$user->name}}</x-slot>
-            </x-exparts>
+            <x-your-answer id="{{$question->id}}">
+                 <x-slot name="id">{{$question->id}}</x-slot>
+                <x-slot name="answer_id">{{$question->answer_id}}</x-slot>
+                <x-slot name="questioner_id">{{$question->questioner_id}}</x-slot>
+                <x-slot name="que_title">{{$question->que_title}}</x-slot>
+                <x-slot name="que_comment">{{$question->que_comment}}</x-slot>
+            </x-your-answer>
             </div>
             
             @endforeach
         @endif
     </div>
-
                 </div>
             </div>
         </div>
-      
       </div>
     </div>
 </div>

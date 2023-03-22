@@ -16,31 +16,13 @@
                         {{ __('みんなの相談を見る') }}
                     </x-nav-link>
                 </div>
-                <!--<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">-->
-                <!--    <x-nav-link :href="route('comment')" >-->
-                <!--        {{ __('プロに質問してみる') }}-->
-                <!--    </x-nav-link>-->
-                <!--</div>-->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('your_answer')" >
+                        {{ __('あなたへの質問に答える') }}
+                    </x-nav-link>
+                </div>
     </div>
-      
-      
-      
-      
-      
-      <div class="w-1/2">
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="キーワードで探す"
-          class="rounded-2xl bg-gray-100 py-3 px-5 w-full justify-center items-center"
-        />
-      </div>
-      <div
-        class="h-12 w-12 p-2 bg-yellow-500 rounded-full text-white font-semibold flex items-center justify-center"
-      >
-        RA
-      </div>
+
     </div>
     <!-- end header -->
     <!-- Chatting -->
@@ -56,16 +38,16 @@
       
       <!--質問-->
     <div class="flex flex-wrap">
-        @if(count($questions)>0)
-            @foreach($questions as $question)
+        @if(count($AnswerToQues)>0)
+            @foreach($AnswerToQues as $AnswerToQue)
             <div class="rounded border bg-green-50 p-3 w-1/3 h-50px">
-            <x-answer id="{{$question->id}}">
-                <x-slot name="answer_id">{{$question->answer_id}}</x-slot>
-                <x-slot name="que_title">{{$question->que_title}}</x-slot>
-                <x-slot name="que_comment">{{$question->que_comment}}</x-slot>
+            <x-answer id="{{$AnswerToQue->id}}">
+                <x-slot name="answer_id">{{$AnswerToQue->answer_id}}</x-slot>
+                <x-slot name="que_title">{{$AnswerToQue->que_title}}</x-slot>
+                <x-slot name="que_comment">{{$AnswerToQue->que_comment}}</x-slot>
+                <x-slot name="answer_comment">{{$AnswerToQue->answer_comment}}</x-slot>
             </x-answer>
             </div>
-            
             @endforeach
         @endif
     </div>

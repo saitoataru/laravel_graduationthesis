@@ -38,7 +38,7 @@
           </form>
         </div>
         <div>
-          <form action="{{ route('comment')}}" method="GET" class="w-full max-w-lg">
+          <form action="{{ route('question',$user_id)}}" method="GET" class="w-full max-w-lg">
         
             <x-button class="bg-gray-100 text-gray-900">{{ __('質問してみる！') }}</x-button>
           </form>

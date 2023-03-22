@@ -11,16 +11,19 @@
                 </div>
                 </div>
           </div>
-              <div class="mt-2">
+            <div class="mt-2">
                 <p class="mt-2 text-gray-600">タイトル：{{$que_title}}</p>
               </div>
               <div class="mt-2">
                 <p class="mt-2 text-gray-600">詳細：{{$que_comment}}</p>
               </div>
-              <div class="mt-2">
-                <p class="mt-2 text-gray-600">詳細：{{$answer_comment}}</p>
-              </div>
-
+            <div class="flex items-center justify-between mt-4">        
+            <form action="{{route('answer_to_que',$id)}}" method="GET">
+                @csrf
+            <button><p class="truncate text-xl font-bold">回答する</p></button>
+              
+            </form>
+            </div>
               
               
       </div>

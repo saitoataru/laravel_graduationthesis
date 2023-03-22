@@ -8,6 +8,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ChatGptController;
+use App\Http\Controllers\YourAnswerController;
+use App\Http\Controllers\AnswerToQueController;
+
 use App\Models\Book;
 
 /*
@@ -76,3 +80,10 @@ Route::get('/answers',[QuestionController::class,'index_answer'])->middleware(['
 Route::get('/question/{user_id}',[QuestionController::class,'question'])->middleware(['auth'])->name('question');
 //質問登録画面
 Route::post('/question/store',[QuestionController::class,'store'])->middleware(['auth'])->name('que.store');
+
+Route::get('/chat', [ChatGptController::class, 'index'])->name('chat_gpt-index');
+Route::post('/chat', [ChatGptController::class, 'chat'])->name('chat_gpt-chat');
+
+Route::get('/youranswer', [YourAnswerController::class, 'index'])->name('your_answer');
+Route::get('/youranswer-to-que{id}', [AnswerToQueController::class, 'index'])->name('answer_to_que');
+Route::post('/youranswer-to-que/store', [AnswerToQueController::class, 'store'])->name('answer_to_que.store');

@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('answer_to__ques', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('answer_id')->constrained();
+            $table->integer('questioner_id')->constrained();
+            $table->string('answer_comment'); //追加
+            $table->string('answer_item_URL'); //追加
+            $table->string('answer_num'); //追加
             $table->string('que_title');
             $table->string('que_comment');
-            $table->string('image');
-            $table->string('item_url');
-            $table->integer('answer_id');
-            $table->integer('questioner_id');
+
+            $table->timestamps();
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('answer_to__ques');
     }
 };

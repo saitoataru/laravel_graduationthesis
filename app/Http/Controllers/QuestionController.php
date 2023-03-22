@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\question;
+use App\Models\Answer_to_Que;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,9 @@ class QuestionController extends Controller
     //view機能
     public function index_answer()
     {
-        $questions = question::all();
+        $AnswerToQues = Answer_to_Que::all();
         return view('searchAnswer', [
-        'questions' => $questions
+        'AnswerToQues' => $AnswerToQues
         ]);
     }
     

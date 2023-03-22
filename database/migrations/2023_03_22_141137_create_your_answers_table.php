@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('your_answers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('que_title');
-            $table->string('que_comment');
-            $table->string('image');
-            $table->string('item_url');
-            $table->integer('answer_id');
-            $table->integer('questioner_id');
         });
     }
 
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('your_answers');
     }
 };
