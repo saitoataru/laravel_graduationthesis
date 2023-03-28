@@ -42,8 +42,8 @@ Route::post('/books',[BookController::class,"store"])->name('book_store');
 Route::delete('/book/{book}', [BookController::class,"destroy"])->name('book_destroy');
 
 //本：更新画面
-Route::post('/booksedit/{book}',[BookController::class,"edit"])->name('book_edit'); //通常
-Route::get('/booksedit/{book}', [BookController::class,"edit"])->name('edit');      //Validationエラーありの場合
+Route::post('/goodsedit/{book}',[BookController::class,"edit"])->name('book_edit'); //通常
+Route::get('/goodsedit/{book}', [BookController::class,"edit"])->name('edit');      //Validationエラーありの場合
 
 //本：更新画面
 Route::post('/books/update',[BookController::class,"update"])->name('book_update');

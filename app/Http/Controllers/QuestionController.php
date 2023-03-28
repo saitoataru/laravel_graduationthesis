@@ -64,7 +64,7 @@ class QuestionController extends Controller
         $questions->que_comment   = $request->que_comment;
         $questions->item_URL = $request->item_URL;
         $questions->questioner_id = Auth::id();
-        $questions->image   = $request->image;
+        // $questions->image   = $request->image;
 
        
         $questions->save(); 

@@ -13,8 +13,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 @foreach($questions as $question)
                 <div class="p-6 bg-white border-b border-gray-500 font-bold">
-                    質問者の{{$question ->questioner_id}}さんに回答する
-                    {{$question ->que_title}}さんに回答する
+                    回答する
                 <!--回答者のユーザーID-->
                 </div>
                  <input type="hidden" name="que_title" value="{{$question->que_title}}">

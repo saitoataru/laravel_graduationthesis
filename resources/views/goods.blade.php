@@ -18,7 +18,7 @@
 
     
     <!--compenent部分[start]-->
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap m-12">
         @if(count($books)>0)
             @foreach($books as $book)
             <div class="rounded border bg-green-50 p-3 w-1/3 h-50px">

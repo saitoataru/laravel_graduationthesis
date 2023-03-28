@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Answer_to_Que;
 use App\Models\question;
 use Illuminate\Http\Request;
-
+use Validator;
 
 class AnswerToQueController extends Controller
 {
@@ -40,7 +40,22 @@ class AnswerToQueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $validator = Validator::make($request->all(),[
+             'answer_num' => 'required',
+             'answer_id' => 'required',
+             'answer_comment' => 'required',
+             'answer_item_URL' => 'required',
+             'answer_item_URL' => 'required',
+             
+            
+        ]);
+                if ($validator->fails()) {
+            return redirect('/youranswer-to-que{id}')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        
         $Answer_to_Ques = new Answer_to_Que;
         $Answer_to_Ques->answer_num   = $request->answer_num;
         $Answer_to_Ques->answer_id   = $request->answer_id;

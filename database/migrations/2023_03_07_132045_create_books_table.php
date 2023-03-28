@@ -19,7 +19,7 @@ return new class extends Migration
              $table->string('comment'); //追加
              $table->string('item_URL'); //追加
              $table->integer('item_amount'); //追加
-             $table->datetime('published'); //追加
+            //  $table->datetime('published'); //追加
             //  $table->bigInteger('user_id'); //Add:user_id
              $table->string('image');
              $table->foreignId('user_id')->constrained();

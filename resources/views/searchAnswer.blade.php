@@ -6,11 +6,11 @@
     <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
     <div class="flex">
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('expart')">
-                        {{ __('相談するプロを探す') }}
-                    </x-nav-link>
-                </div>
+                <!--<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">-->
+                <!--    <x-nav-link :href="route('expart')">-->
+                <!--        {{ __('相談するプロを探す') }}-->
+                <!--    </x-nav-link>-->
+                <!--</div>-->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('answer')" >
                         {{ __('みんなの相談を見る') }}
@@ -46,6 +46,7 @@
                 <x-slot name="que_title">{{$AnswerToQue->que_title}}</x-slot>
                 <x-slot name="que_comment">{{$AnswerToQue->que_comment}}</x-slot>
                 <x-slot name="answer_comment">{{$AnswerToQue->answer_comment}}</x-slot>
+                <x-slot name="answer_item_URL">{{$AnswerToQue->answer_item_URL}}</x-slot>
             </x-answer>
             </div>
             @endforeach

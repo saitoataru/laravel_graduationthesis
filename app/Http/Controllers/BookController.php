@@ -47,7 +47,7 @@ class BookController extends Controller
              'comment' => 'required|min:5|max:255',
              'item_URL' => 'required|min:5',
              'item_amount' => 'required|max:6',
-             'published'   => 'required',
+            //  'published'   => 'required',
             ]);
         if ($validator->fails()) {
             return redirect('/')
@@ -60,7 +60,7 @@ class BookController extends Controller
 	    $books->comment = $request->comment;
 	    $books->item_amount = $request->item_amount;
 	    $books->item_URL = $request->item_URL;
-	    $books->published   = $request->published;
+	   // $books->published   = $request->published;
 	    $books->updated_at   = $request->updated_at;
 	    $books->image   = $request->image;
 	    
@@ -99,7 +99,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('booksedit', ['book' => $book]);
+        return view('goodsedit', ['book' => $book]);
     }
 
     /**
@@ -115,13 +115,12 @@ class BookController extends Controller
          $validator = Validator::make($request->all(), [
              'id' => 'required',
              'item_name' => 'required|min:3|max:255',
-             'item_number' => 'required|min:1|max:3',
              'item_amount' => 'required|max:6',
              'published' => 'required',
         ]);
         //バリデーション:エラー
          if ($validator->fails()) {
-             return redirect('/booksedit/'.$request->id)
+             return redirect('/'.$request->id)
                  ->withInput()
                  ->withErrors($validator);
         }
@@ -129,9 +128,11 @@ class BookController extends Controller
         //データ更新
         $books = Book::where('user_id',Auth::id())->find($request->id);
         $books->item_name   = $request->item_name;
-        $books->item_number = $request->item_number;
         $books->item_amount = $request->item_amount;
-        $books->published   = $request->published;
+        $books->comment = $request->comment;
+        // $books->published   = $request->published;
+        $books->item_URL = $request->item_URL;
+        $books->image = $request->image;
         $books->save();
         return redirect('/');
         

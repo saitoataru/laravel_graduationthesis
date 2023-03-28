@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('que_title');
             $table->string('que_comment');
-            $table->string('image');
+            // $table->string('image');
             $table->string('item_url');
             $table->integer('answer_id');
             $table->integer('questioner_id');
